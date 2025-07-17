@@ -847,22 +847,29 @@ export default function QubitLanding() {
             <p className="text-lg text-gray-500">[Mission statement and company values will be detailed here]</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((member, index) => (
-              <Card key={index} className="bg-white/10 backdrop-blur-sm border-slate-700 rounded-2xl overflow-hidden">
-                <CardContent className="p-8 text-center">
-                  <div className="relative mb-6">
-                    <div className="w-24 h-24 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full mx-auto flex items-center justify-center">
-                      <Users className="w-12 h-12 text-white" />
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-purple-500 rounded-full"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card className="bg-white/10 backdrop-blur-sm border-slate-700 rounded-2xl overflow-hidden">
+              <CardContent className="p-8 text-center">
+                <div className="relative mb-6">
+                  <div className="w-24 h-24 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full mx-auto flex items-center justify-center">
+                    <Users className="w-12 h-12 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-white">[Team Member Name]</h3>
-                  <p className="text-purple-400 mb-4">[Position Title]</p>
-                  <p className="text-gray-400 text-sm">[Team member bio and background details will be added here]</p>
-                </CardContent>
-              </Card>
-            ))}
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-purple-500 rounded-full"></div>
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-white">Max Scott</h3>
+              </CardContent>
+            </Card>
+            <Card className="bg-white/10 backdrop-blur-sm border-slate-700 rounded-2xl overflow-hidden">
+              <CardContent className="p-8 text-center">
+                <div className="relative mb-6">
+                  <div className="w-24 h-24 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full mx-auto flex items-center justify-center">
+                    <Users className="w-12 h-12 text-white" />
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-purple-500 rounded-full"></div>
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-white">Anant Dwivedi</h3>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
