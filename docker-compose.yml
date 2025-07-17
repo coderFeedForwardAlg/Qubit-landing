@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  qubit-landing:
+    build: .
+    ports:
+      - "3958:3000"
+    container_name: qubit-landing
