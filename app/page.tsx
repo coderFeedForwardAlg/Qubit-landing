@@ -511,6 +511,15 @@ export default function QubitLanding() {
                   Become Demo User
                 </Button>
               </DialogTrigger>
+              <a href="https://discord.com/channels/1394706171738456184/1394706172488974377" target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-slate-500/50 text-slate-200 hover:bg-slate-800/50 hover:border-slate-400 px-10 py-4 text-lg font-semibold rounded-full bg-transparent backdrop-blur-sm transition-all duration-300"
+                >
+                  Join Discord
+                </Button>
+              </a>
               <DialogContent className="bg-slate-900/95 backdrop-blur-xl border-slate-700 text-white max-w-md rounded-2xl">
                 <DialogHeader>
                   <DialogTitle className="text-xl font-semibold">Become a Demo User</DialogTitle>
