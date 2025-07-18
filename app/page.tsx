@@ -72,12 +72,6 @@ export default function QubitLanding() {
               <a href="#features" className="text-gray-300 hover:text-white transition-colors">
                 Features
               </a>
-              <a href="#pricing" className="text-gray-300 hover:text-white transition-colors">
-                Pricing
-              </a>
-              <a href="#blog" className="text-gray-300 hover:text-white transition-colors">
-                Blog
-              </a>
               <a href="#faq" className="text-gray-300 hover:text-white transition-colors">
                 FAQ
               </a>
