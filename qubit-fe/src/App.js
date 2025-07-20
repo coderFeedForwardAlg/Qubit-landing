@@ -73,7 +73,7 @@ function App() {
     setWaitlistSubmitStatus(null);
     
     try {
-      const response = await fetch("http://localhost:8082/add_waitlist", {
+      const response = await fetch("/api/add_waitlist", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -87,6 +87,7 @@ function App() {
       const data = await response.json();
       console.log(data);
       
+      setWaitlistSuccess(true);
       setWaitlistSubmitStatus({
         success: true,
         message: 'Successfully added to waitlist!'
@@ -120,7 +121,7 @@ function App() {
     setBetaSubmitStatus(null);
     
     try {
-      const response = await fetch("http://localhost:8082/add_waitlist", { // Using the same endpoint for now
+      const response = await fetch("/api/add_waitlist", { // Using the same endpoint for now
         method: "POST",
         headers: {
           "Content-Type": "application/json",
