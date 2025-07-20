@@ -1,0 +1,41 @@
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: dbuser
+      POSTGRES_PASSWORD: p
+      POSTGRES_DB: data
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - qubit-network
+
+  backend:
+    build:
+      context: ./qubit-handcraft
+    environment:
+      DATABASE_URL: "postgres://dbuser:p@postgres:5432/data"
+    depends_on:
+      - postgres
+    expose:
+      - "8082"
+    networks:
+      - qubit-network
+
+  frontend:
+    build:
+      context: ./qubit-fe
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - qubit-network
+
+networks:
+  qubit-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
