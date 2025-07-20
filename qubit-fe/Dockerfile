@@ -16,17 +16,26 @@ COPY . .
 # Build the app
 RUN npm run build
 
-# Production stage
-FROM nginx:stable-alpine
+# Install serve for static file serving
+RUN npm install -g serve
 
-# Copy built files from build stage to nginx serve directory
-COPY --from=build /app/build /usr/share/nginx/html
+# Production stage - using the same Node image instead of nginx
+FROM node:20-alpine
 
-# Copy custom nginx config if needed
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Set working directory
+WORKDIR /app
 
-# Expose port 80
-EXPOSE 80
+# Install serve for static file serving
+RUN npm install -g serve
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Copy built files from build stage
+COPY --from=build /app/build /app/build
+
+# Create a simple proxy configuration for API requests
+RUN echo '{"rewrites": [{"source": "/api/:path*", "destination": "http://backend:8082/:path*"}]}' > /app/serve.json
+
+# Expose port 3000 (default for serve)
+EXPOSE 3000
+
+# Start serve with the proxy configuration
+CMD ["serve", "-s", "build", "-l", "3000"]

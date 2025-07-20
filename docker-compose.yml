@@ -1,4 +1,3 @@
-
 services:
   postgres:
     image: postgres:13
@@ -10,6 +9,11 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - qubit-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dbuser -d data"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   backend:
     build:
@@ -17,7 +21,8 @@ services:
     environment:
       DATABASE_URL: "postgres://dbuser:p@postgres:5432/data"
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     expose:
       - "8082"
     networks:
@@ -27,7 +32,7 @@ services:
     build:
       context: ./qubit-fe
     ports:
-      - "80:80"
+      - "4798:80"
     depends_on:
       - backend
     networks:
