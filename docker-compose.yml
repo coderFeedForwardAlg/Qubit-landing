@@ -32,7 +32,7 @@ services:
     build:
       context: ./qubit-fe
     ports:
-      - "4798:80"
+      - "4798:3000"
     depends_on:
       - backend
     networks:
