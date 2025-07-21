@@ -321,9 +321,9 @@ function App() {
           </p>
         
         {activeForm === null && (
-          <div className="flex flex-wrap justify-center gap-4 mt-8 px-4 md:px-0">
+          <div className="flex flex-wrap justify-center gap-4 mt-8 px-4 md:px-0 relative z-50">
             <button 
-              onClick={() => setActiveForm('waitlist')}
+              onClick={() => { console.log("click"); setActiveForm('waitlist')}}
               className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-2 px-6 rounded-full focus:outline-none transition-colors"
             >
               Join Waitlist
