@@ -288,9 +288,9 @@ function App() {
       </div>
       
       {/* Main Content */}
-      <div className="flex flex-col items-center justify-center min-h-[80vh] px-4 relative z-10">
+      <div className="flex flex-col items-center px-4 absolute top-16 left-0 right-0 z-10">
         {/* Coming Soon Badge */}
-        <div className="bg-purple-600/40 text-white text-sm px-4 py-1 rounded-full mb-8 backdrop-blur-sm flex items-center">
+        <div className="bg-purple-600/40 text-white text-sm px-4 py-1 rounded-full mb-4 backdrop-blur-sm flex items-center">
           <span>Coming Soon</span>
           <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -348,7 +348,7 @@ function App() {
         }}
       >
         <div
-          className="relative"
+          className="relative hidden md:block"
           style={{
             transform: "rotateX(10deg) rotateY(15deg) rotateZ(8deg)",
             transformStyle: "preserve-3d",
