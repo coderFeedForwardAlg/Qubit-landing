@@ -199,64 +199,13 @@ function App() {
       {/* <div className="absolute top-40 left-10 opacity-20 hidden md:block">
         <HexagonPattern className="w-64 h-64 text-purple-400/30" />
       </div> */}
-      <div className="absolute bottom-20 right-10 opacity-20 hidden md:block">
+      <div className="absolute bottom-20 right-10 opacity-20">
         <CurvedLines className="w-64 h-64 text-blue-400/30" />
       </div>
       
-      {/* Main Content */}
-      <div className="flex flex-col items-center justify-center min-h-[80vh] px-4 relative z-10">
-        {/* Coming Soon Badge */}
-        <div className="bg-purple-600/40 text-white text-sm px-4 py-1 rounded-full mb-8 backdrop-blur-sm flex items-center">
-          <span>Coming Soon</span>
-          <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </div>
-
-        {/* Hero Section with Card */}
-        <div className="max-w-4xl mx-auto text-center mb-12">
-          {/* Glass effect container for hero text */}
-          <div className="relative backdrop-blur-sm rounded-xl p-6 border border-white/20 shadow-2xl mb-6 overflow-hidden bg-black/30">
-            {/* Gradient background for glass effect */}
-            <div className="absolute inset-0 z-0" style={{ background: 'linear-gradient(to bottom right, rgba(65, 35, 128, 0.6), rgba(93, 37, 158, 0.5))' }}></div>
-            
-            {/* Additional glass shine effect */}
-            <div className="absolute top-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-xl"></div>
-            <div className="absolute bottom-10 right-10 w-40 h-40 bg-purple-400/10 rounded-full blur-xl"></div>
-            
-            <h1 className="text-4xl md:text-7xl font-bold text-white relative z-10 p-4 md:p-14">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">10x</span> your post<br />
-              production and<br />
-              video editing process<br />
-              with <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 inline-flex items-center">Qubit</span>
-            </h1>
-          </div>
-          
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto text-base md:text-lg px-4 md:px-0">
-            Revolutionary AI-powered video editing platform launching soon. Be the first to experience the future of post-production.
-          </p>
-        
-        {activeForm === null && (
-          <div className="flex flex-wrap justify-center gap-4 mt-8 px-4 md:px-0">
-            <button 
-              onClick={() => setActiveForm('waitlist')}
-              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-2 px-6 rounded-full focus:outline-none transition-colors"
-            >
-              Join Waitlist
-            </button>
-            
-            <button 
-              onClick={() => setActiveForm('beta')}
-              className="bg-transparent border border-purple-400 text-white py-2 px-6 rounded-full hover:bg-purple-800/30 focus:outline-none transition-colors"
-            >
-              Become Demo User
-            </button>
-          </div>
-        )}
-      </div>
-      {/* Left 3D Laptop Element - hidden on screens 1024px and smaller */}
+      {/* Left 3D Laptop Element - now visible on all screens and in background */}
       <div
-        className="absolute left-10 top-1/3 animate-float hidden lg:block"
+        className="absolute left-10 top-1/3 animate-float z-0"
         style={{
           transform: `translate3d(${mousePosition.x * 0.008}px, ${-mousePosition.y * 0.008}px, 0)`,
           transition: "transform 0.1s ease-out",
@@ -319,27 +268,80 @@ function App() {
             <div
               className="absolute w-4 h-32 right-0 rounded-r-xl"
               style={{
-                background: "linear-gradient(90deg, #94a3b8 0%, #64748b 100%)",
-                transform: "rotateY(90deg) translateZ(4px)",
+                background: "linear-gradient(90deg, #64748b 0%, #475569 100%)",
+                transform: "rotateY(90deg) translateZ(64px)",
                 transformOrigin: "right",
               }}
             />
-          </div>
 
-          {/* Laptop Shadow */}
-          <div
-            className="absolute -bottom-2 left-2 right-2 h-4 rounded-full opacity-40"
-            style={{
-              background: "radial-gradient(ellipse, rgba(0,0,0,0.4) 0%, transparent 70%)",
-              transform: "rotateX(90deg) translateZ(-10px)",
-            }}
-          />
+            {/* Left Side */}
+            <div
+              className="absolute w-4 h-32 left-0 rounded-l-xl"
+              style={{
+                background: "linear-gradient(270deg, #64748b 0%, #475569 100%)",
+                transform: "rotateY(-90deg) translateZ(0px)",
+                transformOrigin: "left",
+              }}
+            />
+          </div>
         </div>
       </div>
+      
+      {/* Main Content */}
+      <div className="flex flex-col items-center justify-center min-h-[80vh] px-4 relative z-10">
+        {/* Coming Soon Badge */}
+        <div className="bg-purple-600/40 text-white text-sm px-4 py-1 rounded-full mb-8 backdrop-blur-sm flex items-center">
+          <span>Coming Soon</span>
+          <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
 
-      {/* Right 3D Video Interface - hidden on screens 1024px and smaller */}
+        {/* Hero Section with Card */}
+        <div className="max-w-4xl mx-auto text-center mb-12 relative">
+          {/* Additional glass shine effect - positioned outside and always visible */}
+          <div className="absolute top-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-xl z-0"></div>
+          <div className="absolute bottom-10 right-10 w-40 h-40 bg-purple-400/10 rounded-full blur-xl z-0"></div>
+          
+          {/* Glass effect container for hero text */}
+          <div className="relative backdrop-blur-sm rounded-xl p-6 border border-white/20 shadow-2xl mb-6 overflow-hidden bg-black/30">
+            {/* Gradient background for glass effect */}
+            <div className="absolute inset-0 z-0" style={{ background: 'linear-gradient(to bottom right, rgba(65, 35, 128, 0.6), rgba(93, 37, 158, 0.5))' }}></div>
+            
+            <h1 className="text-4xl md:text-7xl font-bold text-white relative z-10 p-4 md:p-14">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">10x</span> your post<br />
+              production and<br />
+              video editing process<br />
+              with <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 inline-flex items-center">Qubit</span>
+            </h1>
+          </div>
+          
+          <p className="text-gray-300 mb-8 max-w-2xl mx-auto text-base md:text-lg px-4 md:px-0">
+            Revolutionary AI-powered video editing platform launching soon. Be the first to experience the future of post-production.
+          </p>
+        
+        {activeForm === null && (
+          <div className="flex flex-wrap justify-center gap-4 mt-8 px-4 md:px-0">
+            <button 
+              onClick={() => setActiveForm('waitlist')}
+              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-2 px-6 rounded-full focus:outline-none transition-colors"
+            >
+              Join Waitlist
+            </button>
+            
+            <button 
+              onClick={() => setActiveForm('beta')}
+              className="bg-transparent border border-purple-400 text-white py-2 px-6 rounded-full hover:bg-purple-800/30 focus:outline-none transition-colors"
+            >
+              Become Demo User
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Right 3D Video Interface - now visible on all screen sizes and in background */}
       <div
-        className="absolute right-10 top-1/2 animate-float-delayed hidden lg:block"
+        className="absolute right-10 top-1/2 animate-float-delayed z-0"
         style={{
           transform: `translate3d(${-mousePosition.x * 0.008}px, ${mousePosition.y * 0.008}px, 0)`,
           transition: "transform 0.1s ease-out",
