@@ -224,7 +224,7 @@ function App() {
             <div className="absolute top-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-xl"></div>
             <div className="absolute bottom-10 right-10 w-40 h-40 bg-purple-400/10 rounded-full blur-xl"></div>
             
-            <h1 className="text-7xl md:text-7xl font-bold text-white relative z-10 p-14">
+            <h1 className="text-4xl md:text-7xl font-bold text-white relative z-10 p-4 md:p-14">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">10x</span> your post<br />
               production and<br />
               video editing process<br />
@@ -232,12 +232,12 @@ function App() {
             </h1>
           </div>
           
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-300 mb-8 max-w-2xl mx-auto text-base md:text-lg px-4 md:px-0">
             Revolutionary AI-powered video editing platform launching soon. Be the first to experience the future of post-production.
           </p>
         
         {activeForm === null && (
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
+          <div className="flex flex-wrap justify-center gap-4 mt-8 px-4 md:px-0">
             <button 
               onClick={() => setActiveForm('waitlist')}
               className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-2 px-6 rounded-full focus:outline-none transition-colors"
@@ -254,9 +254,9 @@ function App() {
           </div>
         )}
       </div>
-      {/* Left 3D Laptop Element */}
+      {/* Left 3D Laptop Element - hidden on screens 1024px and smaller */}
       <div
-        className="absolute left-10 top-1/3 animate-float"
+        className="absolute left-10 top-1/3 animate-float hidden lg:block"
         style={{
           transform: `translate3d(${mousePosition.x * 0.008}px, ${-mousePosition.y * 0.008}px, 0)`,
           transition: "transform 0.1s ease-out",
@@ -337,9 +337,9 @@ function App() {
         </div>
       </div>
 
-      {/* Right 3D Video Interface */}
+      {/* Right 3D Video Interface - hidden on screens 1024px and smaller */}
       <div
-        className="absolute right-10 top-1/2 animate-float-delayed"
+        className="absolute right-10 top-1/2 animate-float-delayed hidden lg:block"
         style={{
           transform: `translate3d(${-mousePosition.x * 0.008}px, ${mousePosition.y * 0.008}px, 0)`,
           transition: "transform 0.1s ease-out",
