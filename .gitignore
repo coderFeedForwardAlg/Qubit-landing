@@ -37,3 +37,7 @@ coverage/
 # Build outputs
 dist/
 build/
+
+# Media files
+*.mp3
+*.mp4
